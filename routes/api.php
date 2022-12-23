@@ -34,8 +34,11 @@ Route::group(['prefix' => 'auth',], function () {
 
 // authenticated routes
 Route::group(['middleware' => 'jwt'], function() {
-    Route::prefix('auth')->group(function () {
+
+    // auth authenticated routes
+    Route::group(['prefix' => 'auth'] ,function () {
         Route::get('me', [AuthController::class, 'me']);
         Route::post('logout', [AuthController::class, 'logout']);
     });
+
 });
