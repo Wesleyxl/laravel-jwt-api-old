@@ -39,6 +39,7 @@ Route::group(['middleware' => 'jwt'], function() {
     Route::group(['prefix' => 'auth'] ,function () {
         Route::get('me', [AuthController::class, 'me']);
         Route::post('logout', [AuthController::class, 'logout']);
+        Route::post('refresh', [AuthController::class,'refresh']);
     });
 
 });
